@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/** 
+ * OFT TECH Custom Gradient Palette
+ * Palette: Deep Navy (#020024) -> Vibrant Teal (#57BCC7) -> Warm Cream (#F0E4D3)
+ */
+@theme {
+  --color-primary: #020024;
+  /* Deep Navy - Authority Base */
+  --color-secondary: #008080;
+  /* Dark Teal - Readable on light */
+  --color-accent: #57BCC7;
+  /* Vibrant Teal - Highlights */
+  --color-bg-light: #F0E4D3;
+  /* Warm Cream - Light backgrounds */
+
+  --color-text-dark: #020024;
+  --color-text-light: #FDFDFD;
+
+  --font-sans: "Inter", "sans-serif";
+}
+
+:root {
+  --brand-navy: #020024;
+  --brand-teal: #57BCC7;
+  --brand-cream: #F0E4D3;
+}
+
+html, body {
+  @apply bg-white text-primary font-sans antialiased selection:bg-accent/30 overflow-x-hidden w-full;
+  /* Improved default typography */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* User-Specified Custom Gradient */
+.hero-custom-gradient {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(256deg, rgba(2, 0, 36, 1) 0%, rgba(87, 188, 199, 1) 50%, rgba(240, 228, 211, 1) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 lg:px-8;
+}
+
+.heading-xl {
+  @apply text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.05];
+}
+
+.heading-lg {
+  @apply text-3xl md:text-5xl font-black tracking-tight leading-[1.1] text-primary;
+}
+
+.text-body {
+  @apply text-lg text-primary/80 leading-relaxed font-normal;
+}

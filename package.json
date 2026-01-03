@@ -1,0 +1,14 @@
+{
+    "name": "ofttech-root",
+    "version": "1.0.0",
+    "description": "Root Orchestration for OFT TECH",
+    "scripts": {
+        "install-backend": "npm install --prefix backend",
+        "build": "npm run install-backend && npm run build:render --prefix backend",
+        "build:local": "npm run install-backend && npm run build:local --prefix backend",
+        "start": "npm start --prefix backend"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
