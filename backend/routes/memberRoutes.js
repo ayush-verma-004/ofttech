@@ -8,7 +8,10 @@ const router = express.Router();
 
 router.route('/')
     .get(getMembers)
-    .post(protect, checkPermission('TEAM_UPDATE'), upload.single('image'), createMember);
+    .post(protect, checkPermission('TEAM_UPDATE'), (req, res, next) => {
+        console.log('POST /members - Headers:', req.headers['content-type']);
+        next();
+    }, upload.single('image'), createMember);
 
 router.route('/:id')
     .put(protect, checkPermission('TEAM_UPDATE'), upload.single('image'), updateMember)
