@@ -55,7 +55,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'public')));
 
     // Handle SPA routing (redirect all non-API requests to index.html)
-    app.get('*', (req, res) => {
+    app.get('/(.*)', (req, res) => {
         // Exclude API routes from this fallback to prevent confusion
         if (req.path.startsWith('/api')) {
             return res.status(404).json({ success: false, message: 'API route not found' });
