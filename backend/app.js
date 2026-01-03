@@ -32,10 +32,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Base Route
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to OFTTECH Backend API', status: 'Running' });
-});
+// Base Route moved or removed to allow frontend serving
+// app.get('/', (req, res) => {
+//     res.json({ message: 'Welcome to OFTTECH Backend API', status: 'Running' });
+// });
 
 // Routes
 const path = require('path');
