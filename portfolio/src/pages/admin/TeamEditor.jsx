@@ -70,8 +70,10 @@ const TeamEditor = () => {
 
         try {
             // Need to set Content-Type header to multipart/form-data, but axios does this automatically with FormData
-            // However, our api instance has default headers. Let's override.
-            const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+            // Do NOT set Content-Type: multipart/form-data manually. It strips the boundary.
+            // Let the browser set it automatically when it detects FormData.
+            // We might need to override the default 'application/json' from api.js instance.
+            const config = { headers: { 'Content-Type': undefined } };
 
             if (view === 'NEW') {
                 await api.post('/members', payload, config);
