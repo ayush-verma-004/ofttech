@@ -130,7 +130,10 @@ const Navbar = () => {
                         </a>
                     ))}
                 </div>
-                <div className="mt-auto mb-12 px-8">
+                <div className="mt-auto mb-12 px-8 flex flex-col gap-4">
+                    <a href="/login" className="text-white text-center text-lg font-medium py-3 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
+                        Log In
+                    </a>
                     <Button className="w-full bg-secondary hover:bg-secondary/90 text-white" size="lg">Contact Us</Button>
                 </div>
             </div>

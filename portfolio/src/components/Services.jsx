@@ -86,7 +86,7 @@ const Services = () => {
                         <motion.div
                             key={i}
                             variants={itemVariants}
-                            className="text-center p-12 bg-white border border-slate-100 rounded-[2rem] hover:shadow-[0_40px_100px_rgba(15,23,27,0.06)] hover:border-secondary/20 transition-all duration-500 group"
+                            className="text-center p-8 md:p-12 bg-white border border-slate-100 rounded-[2rem] hover:shadow-[0_40px_100px_rgba(15,23,27,0.06)] hover:border-secondary/20 transition-all duration-500 group"
                         >
                             <div className="relative w-20 h-20 mx-auto mb-10 flex items-center justify-center">
                                 <div className="absolute inset-0 bg-secondary/5 rounded-2xl rotate-12 group-hover:rotate-[30deg] group-hover:bg-secondary/10 transition-all duration-700"></div>
@@ -95,10 +95,10 @@ const Services = () => {
                                 </div>
                             </div>
 
-                            <h3 className="text-sm font-black uppercase tracking-widest mb-4 text-primary">
+                            <h3 className="text-base md:text-sm font-black uppercase tracking-widest mb-4 text-primary">
                                 {service.title}
                             </h3>
-                            <p className="text-xs text-text-muted leading-relaxed font-semibold mb-8 px-4 opacity-80">
+                            <p className="text-sm text-text-muted leading-relaxed font-semibold mb-8 px-2 md:px-4 opacity-80">
                                 {service.description}
                             </p>
 

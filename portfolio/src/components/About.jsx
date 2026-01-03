@@ -71,27 +71,27 @@ const About = () => {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, ease: "circOut" }}
                     >
-                        <span className="text-secondary font-bold uppercase tracking-[0.25em] text-[10px] mb-4 md:mb-6 block">Our Identity</span>
-                        <h2 className="text-3xl md:text-5xl font-black mb-6 md:mb-10 text-primary leading-tight" dangerouslySetInnerHTML={{ __html: heading?.replace(/\n/g, '<br/>') || "Reliability at <br class='hidden md:block' /> Every Layer of Scale" }}></h2>
-                        <p className="text-sm md:text-lg text-primary/80 mb-8 leading-relaxed">
+                        <span className="text-secondary font-bold uppercase tracking-[0.25em] text-xs md:text-[10px] mb-4 md:mb-6 block">Our Identity</span>
+                        <h2 className="text-4xl md:text-5xl font-black mb-6 md:mb-10 text-primary leading-tight" dangerouslySetInnerHTML={{ __html: heading?.replace(/\n/g, '<br/>') || "Reliability at <br class='hidden md:block' /> Every Layer of Scale" }}></h2>
+                        <p className="text-base md:text-lg text-primary/80 mb-8 leading-relaxed">
                             {overview || "OFT TECH stands at the intersection..."}
                         </p>
-                        <div className="flex gap-16 py-8 border-y border-accent-light/50 border-dashed">
+                        <div className="grid grid-cols-2 gap-8 md:flex md:gap-16 py-8 border-y border-accent-light/50 border-dashed">
                             {stats && stats.map((stat, i) => (
                                 <div key={i}>
                                     <div className="text-4xl font-bold text-primary tracking-tight">{stat.value}</div>
-                                    <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">{stat.label}</div>
+                                    <div className="text-xs md:text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">{stat.label}</div>
                                 </div>
                             ))}
                             {!stats && (
                                 <>
                                     <div>
                                         <div className="text-4xl font-bold text-primary tracking-tight">150+</div>
-                                        <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">Architects</div>
+                                        <div className="text-xs md:text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">Architects</div>
                                     </div>
                                     <div>
                                         <div className="text-4xl font-bold text-secondary tracking-tight">10yr+</div>
-                                        <div className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">Excellence</div>
+                                        <div className="text-xs md:text-[10px] uppercase font-bold tracking-[0.2em] text-accent mt-2">Excellence</div>
                                     </div>
                                 </>
                             )}

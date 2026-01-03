@@ -42,8 +42,10 @@ exports.createMember = async (req, res) => {
 
         res.status(201).json({ success: true, data: member });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error' });
+        console.error("Member Creation Error:", error);
+        console.error("Request Body:", req.body);
+        console.error("Request File:", req.file);
+        res.status(500).json({ success: false, message: 'Server Error', error: error.message });
     }
 };
 
