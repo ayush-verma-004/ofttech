@@ -32,14 +32,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const path = require('path');
-
-// Base Route (API Status)
-app.get('/api/status', (req, res) => {
+// Base Route
+app.get('/', (req, res) => {
     res.json({ message: 'Welcome to OFTTECH Backend API', status: 'Running' });
 });
 
 // Routes
+const path = require('path');
+
+// ... existing routes ...
 app.use('/api/v1/users', require('./routes/userRoutes'));
 app.use('/api/v1/auth', require('./routes/authRoutes'));
 app.use('/api/v1/members', require('./routes/memberRoutes'));
@@ -49,23 +50,12 @@ app.use('/api/v1/projects', require('./routes/projectRoutes'));
 app.use('/api/v1/services', require('./routes/serviceRoutes'));
 app.use('/api/v1/general', require('./routes/generalInfoRoutes'));
 
-// Serve Frontend in Production
+// Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-    // Set static folder
-    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, '../portfolio/dist')));
 
-    // Handle SPA routing (redirect all non-API requests to index.html)
-    app.get(/.*/, (req, res) => {
-        // Exclude API routes from this fallback to prevent confusion
-        // Note: The /api check is redundant if this is placed after API routes, but good for safety.
-        if (req.path.startsWith('/api')) {
-            return res.status(404).json({ success: false, message: 'API route not found' });
-        }
-        res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-    });
-} else {
-    app.get('/', (req, res) => {
-        res.json({ message: 'Welcome to OFTTECH Backend Development API', status: 'Running' });
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../portfolio/dist', 'index.html'));
     });
 }
 

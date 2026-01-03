@@ -2,13 +2,24 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Section, Container } from './layout/Layout';
 import { Linkedin, Twitter, Mail } from 'lucide-react';
-import useFetch from '../hooks/useFetch';
-import { Skeleton } from './ui/Skeleton';
 
 const Team = () => {
-    const { data: team, loading, error } = useFetch('/members');
+    const [team, setTeam] = React.useState([]);
 
-    if (error) return null; // Or render an error state/toast
+    React.useEffect(() => {
+        const fetchTeam = async () => {
+            try {
+                // Using fetch directly or import api if possible. Assuming api is not easily imported in component dir without utils alias.
+                // Using simple fetch to localhost for now or full URL from env
+                const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1'}/members`);
+                const json = await res.json();
+                if (json.success) setTeam(json.data);
+            } catch (e) {
+                console.error("Failed to load team", e);
+            }
+        };
+        fetchTeam();
+    }, []);
 
     return (
         <Section id="team" className="bg-bg-base border-t border-slate-100">
@@ -22,57 +33,43 @@ const Team = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {loading ? (
-                        // Skeleton Loading State
-                        Array.from({ length: 3 }).map((_, i) => (
-                            <div key={i} className="rounded-[2rem] overflow-hidden">
-                                <Skeleton className="w-full aspect-[4/5] mb-8" />
-                                <div className="text-center">
-                                    <Skeleton className="h-6 w-32 mx-auto mb-2" />
-                                    <Skeleton className="h-4 w-24 mx-auto mb-4" />
-                                    <Skeleton className="h-16 w-full" />
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        team?.map((member, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.1, duration: 0.5 }}
-                                className="group"
-                            >
-                                <div className="relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-secondary/20 transition-all duration-500 aspect-[4/5] mb-8 group">
-                                    {member.imageUrl ? (
-                                        <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                                    ) : (
-                                        <div className="absolute inset-0 bg-slate-50 flex items-center justify-center flex-col gap-4 group-hover:bg-slate-100 transition-colors">
-                                            <div className="w-20 h-20 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-300">
-                                                <span className="text-xs font-black uppercase tracking-widest">Photo</span>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* Overlay Gradient */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
-                                        <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                                            {member.socials?.linkedin && <a href={member.socials.linkedin} className="text-white/80 hover:text-white transition-colors"><Linkedin size={20} /></a>}
-                                            {member.socials?.twitter && <a href={member.socials.twitter} className="text-white/80 hover:text-white transition-colors"><Twitter size={20} /></a>}
-                                            {member.socials?.email && <a href={`mailto:${member.socials.email}`} className="text-white/80 hover:text-white transition-colors"><Mail size={20} /></a>}
+                    {team.map((member, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            className="group"
+                        >
+                            <div className="relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl hover:border-secondary/20 transition-all duration-500 aspect-[4/5] mb-8 group">
+                                {member.imageUrl ? (
+                                    <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                                ) : (
+                                    <div className="absolute inset-0 bg-slate-50 flex items-center justify-center flex-col gap-4 group-hover:bg-slate-100 transition-colors">
+                                        <div className="w-20 h-20 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-300">
+                                            <span className="text-xs font-black uppercase tracking-widest">Photo</span>
                                         </div>
                                     </div>
-                                </div>
+                                )}
 
-                                <div className="text-center">
-                                    <h3 className="text-xl font-black text-primary mb-2">{member.name}</h3>
-                                    <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-4">{member.role}</p>
-                                    <p className="text-text-muted text-sm leading-relaxed opacity-80">{member.bio}</p>
+                                {/* Overlay Gradient */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-8 flex flex-col justify-end">
+                                    <div className="flex gap-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                                        {member.socials?.linkedin && <a href={member.socials.linkedin} className="text-white/80 hover:text-white transition-colors"><Linkedin size={20} /></a>}
+                                        {member.socials?.twitter && <a href={member.socials.twitter} className="text-white/80 hover:text-white transition-colors"><Twitter size={20} /></a>}
+                                        {member.socials?.email && <a href={`mailto:${member.socials.email}`} className="text-white/80 hover:text-white transition-colors"><Mail size={20} /></a>}
+                                    </div>
                                 </div>
-                            </motion.div>
-                        ))
-                    )}
+                            </div>
+
+                            <div className="text-center">
+                                <h3 className="text-xl font-black text-primary mb-2">{member.name}</h3>
+                                <p className="text-secondary text-xs font-bold uppercase tracking-widest mb-4">{member.role}</p>
+                                <p className="text-text-muted text-sm leading-relaxed opacity-80">{member.bio}</p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </Container>
         </Section >
@@ -80,4 +77,3 @@ const Team = () => {
 };
 
 export default Team;
-

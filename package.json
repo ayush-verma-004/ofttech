@@ -1,14 +1,14 @@
 {
-    "name": "ofttech-root",
+    "name": "ofttech-monorepo",
     "version": "1.0.0",
-    "description": "Root Orchestration for OFT TECH",
+    "private": true,
     "scripts": {
-        "install-backend": "npm install --prefix backend",
-        "build": "npm run install-backend && npm run build:render --prefix backend",
-        "build:local": "npm run install-backend && npm run build:local --prefix backend",
-        "start": "npm start --prefix backend"
+        "postinstall": "npm install --prefix backend && npm install --prefix portfolio",
+        "build": "npm run build --prefix portfolio",
+        "start": "npm start --prefix backend",
+        "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix portfolio\""
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
 }

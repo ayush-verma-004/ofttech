@@ -3,16 +3,17 @@ const jwt = require('jsonwebtoken');
 const logAction = require('../utils/logger');
 
 // Generate Access Token
+// Generate Access Token
 const generateAccessToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE
+        expiresIn: process.env.JWT_EXPIRE || '30d'
     });
 };
 
 // Generate Refresh Token
 const generateRefreshToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_REFRESH_SECRET, {
-        expiresIn: process.env.JWT_REFRESH_EXPIRE
+    return jwt.sign({ id }, process.env.JWT_REFRESH_SECRET || process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_REFRESH_EXPIRE || '7d'
     });
 };
 

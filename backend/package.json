@@ -6,9 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "seed": "node utils/seeder.js",
-    "build:local": "cd ../portfolio && npm install && npm run build && xcopy /E /I /Y ..\\portfolio\\dist public",
-    "build:render": "cd ../portfolio && npm install && npm run build && cp -r dist ../backend/public"
+    "seed": "node utils/seeder.js"
   },
   "keywords": [],
   "author": "",

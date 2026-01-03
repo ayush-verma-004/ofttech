@@ -28,15 +28,6 @@
 
 html, body {
   @apply bg-white text-primary font-sans antialiased selection:bg-accent/30 overflow-x-hidden w-full;
-  /* Improved default typography */
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  letter-spacing: -0.02em;
 }
 
 /* User-Specified Custom Gradient */
