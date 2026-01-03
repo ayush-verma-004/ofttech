@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "postinstall": "npm install --prefix backend && npm install --prefix portfolio",
+        "postinstall": "npm install --prefix backend && npm install --prefix portfolio --include=dev",
         "build": "npm run build --prefix portfolio",
         "start": "npm start --prefix backend",
         "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix portfolio\""
