@@ -9,13 +9,16 @@ const Team = () => {
     React.useEffect(() => {
         const fetchTeam = async () => {
             try {
-                // Using fetch directly or import api if possible. Assuming api is not easily imported in component dir without utils alias.
-                // Using simple fetch to localhost for now or full URL from env
-                const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1'}/members`);
-                const json = await res.json();
-                if (json.success) setTeam(json.data);
+                // Use the configured axios instance 'api'
+                // This ensures we use the correct baseURL defined in api.js (relative /api/v1 in prod)
+                // Import assuming api.js is export default
+                const { default: api } = await import('../utils/api');
+                const res = await api.get('/members');
+                if (res.data.success) {
+                    setTeam(res.data.data);
+                }
             } catch (e) {
-                console.error("Failed to load team", e);
+                console.error("Failed to load team:", e);
             }
         };
         fetchTeam();
