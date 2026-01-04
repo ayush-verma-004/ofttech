@@ -26,6 +26,7 @@ const TeamEditor = () => {
     const fetchMembers = async () => {
         try {
             const res = await api.get('/team');
+            console.log('Admin Team Data:', res.data.data);
             setMembers(res.data.data);
         } catch (error) {
             console.error(error);

@@ -12,6 +12,7 @@ const Team = () => {
                 const { default: api } = await import('../utils/api');
                 const res = await api.get('/team');
                 if (res.data.success) {
+                    console.log('Team Data Received:', res.data.data);
                     setTeam(res.data.data);
                 }
             } catch (e) {
