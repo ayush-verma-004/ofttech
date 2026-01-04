@@ -43,7 +43,7 @@ const path = require('path');
 // ... existing routes ...
 app.use('/api/v1/users', require('./routes/userRoutes'));
 app.use('/api/v1/auth', require('./routes/authRoutes'));
-app.use('/api/v1/members', require('./routes/memberRoutes'));
+app.use('/api/v1/team', require('./routes/teamRoutes'));
 app.use('/api/v1/about', require('./routes/aboutRoutes'));
 app.use('/api/v1/careers', require('./routes/careerRoutes'));
 app.use('/api/v1/projects', require('./routes/projectRoutes'));

@@ -14,7 +14,7 @@ const TeamEditor = () => {
         role: '',
         bio: '',
         image: null, // File object
-        socials: { linkedin: '', twitter: '', email: '' }
+        socialLinks: { linkedin: '', twitter: '', email: '' }
     };
     const [formData, setFormData] = useState(initialFormState);
     const [previewUrl, setPreviewUrl] = useState('');
@@ -25,7 +25,7 @@ const TeamEditor = () => {
 
     const fetchMembers = async () => {
         try {
-            const res = await api.get('/members');
+            const res = await api.get('/team');
             setMembers(res.data.data);
         } catch (error) {
             console.error(error);
@@ -40,9 +40,9 @@ const TeamEditor = () => {
             name: member.name,
             role: member.role,
             bio: member.bio,
-            socials: member.socials || initialFormState.socials
+            socialLinks: member.socialLinks || initialFormState.socialLinks
         });
-        setPreviewUrl(member.imageUrl);
+        setPreviewUrl(member.image);
         setEditingMember(member);
         setView('EDIT');
     };
@@ -62,23 +62,19 @@ const TeamEditor = () => {
         payload.append('name', formData.name);
         payload.append('role', formData.role);
         payload.append('bio', formData.bio);
-        payload.append('socials', JSON.stringify(formData.socials));
+        payload.append('socialLinks', JSON.stringify(formData.socialLinks));
 
-        if (formData.image) {
+        if (formData.image instanceof File) {
             payload.append('image', formData.image);
         }
 
         try {
-            // Need to set Content-Type header to multipart/form-data, but axios does this automatically with FormData
-            // Do NOT set Content-Type: multipart/form-data manually. It strips the boundary.
-            // Let the browser set it automatically when it detects FormData.
-            // We might need to override the default 'application/json' from api.js instance.
             const config = { headers: { 'Content-Type': undefined } };
 
             if (view === 'NEW') {
-                await api.post('/members', payload, config);
+                await api.post('/team', payload, config);
             } else {
-                await api.put(`/members/${editingMember._id}`, payload, config);
+                await api.put(`/team/${editingMember._id}`, payload, config);
             }
             await fetchMembers();
             setView('LIST');
@@ -90,7 +86,7 @@ const TeamEditor = () => {
     const handleDelete = async (id) => {
         if (!window.confirm('Delete this team member?')) return;
         try {
-            await api.delete(`/members/${id}`);
+            await api.delete(`/team/${id}`);
             setMembers(members.filter(m => m._id !== id));
         } catch (error) {
             alert('Error deleting member');
@@ -117,8 +113,8 @@ const TeamEditor = () => {
                     {members.map(member => (
                         <div key={member._id} className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm flex flex-col items-center text-center">
                             <div className="w-20 h-20 bg-gray-100 rounded-full mb-4 overflow-hidden border border-gray-200">
-                                {member.imageUrl ? (
-                                    <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover" />
+                                {member.image ? (
+                                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-gray-400 font-bold">No Img</div>
                                 )}
@@ -211,20 +207,20 @@ const TeamEditor = () => {
                         <input
                             placeholder="LinkedIn URL"
                             className="px-3 py-2 border rounded text-sm"
-                            value={formData.socials?.linkedin || ''}
-                            onChange={e => setFormData({ ...formData, socials: { ...formData.socials, linkedin: e.target.value } })}
+                            value={formData.socialLinks?.linkedin || ''}
+                            onChange={e => setFormData({ ...formData, socialLinks: { ...formData.socialLinks, linkedin: e.target.value } })}
                         />
                         <input
                             placeholder="Twitter URL"
                             className="px-3 py-2 border rounded text-sm"
-                            value={formData.socials?.twitter || ''}
-                            onChange={e => setFormData({ ...formData, socials: { ...formData.socials, twitter: e.target.value } })}
+                            value={formData.socialLinks?.twitter || ''}
+                            onChange={e => setFormData({ ...formData, socialLinks: { ...formData.socialLinks, twitter: e.target.value } })}
                         />
                         <input
                             placeholder="Email Address"
                             className="px-3 py-2 border rounded text-sm"
-                            value={formData.socials?.email || ''}
-                            onChange={e => setFormData({ ...formData, socials: { ...formData.socials, email: e.target.value } })}
+                            value={formData.socialLinks?.email || ''}
+                            onChange={e => setFormData({ ...formData, socialLinks: { ...formData.socialLinks, email: e.target.value } })}
                         />
                     </div>
                 </div>
