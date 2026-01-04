@@ -22,8 +22,10 @@ exports.addTeamMember = async (req, res) => {
 
         // Handle Image Upload
         if (req.file) {
+            console.log('File Uploaded Successfully:', req.file);
             memberData.image = req.file.path;
         } else {
+            console.error('File Upload Failed: req.file is undefined');
             return res.status(400).json({ success: false, message: 'Image is required' });
         }
 
