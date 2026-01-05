@@ -107,7 +107,7 @@ const Hero = () => {
                         variants={itemVariants}
                         className="text-primary text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 md:mb-8 leading-[1.1] md:leading-[1.05]"
                     >
-                        {renderTitle(settings.hero?.title) || 'Navigating Complex Horizons'}
+                        {renderTitle(settings.hero?.title) || 'Building Scalable Web Solutions for Modern Businesses'}
                     </motion.h1>
 
                     <motion.p

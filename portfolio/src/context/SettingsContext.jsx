@@ -12,12 +12,13 @@ export const SettingsProvider = ({ children }) => {
         address: 'Level 24, Global Trade Center',
         socials: {},
         hero: {
-            tagline: 'Adaptive Gradient Core',
-            title: 'Navigating \nComplex \nHorizons',
-            subtitle: 'OFT TECH leverages deep architectural insight to guide enterprises through the gradient of digital transformation.',
-            ctaPrimary: 'Start The Shift',
-            ctaSecondary: 'Explore Vision'
-        }
+            // Updated defaults to match user request
+            tagline: "IT Services & Web Development Solutions",
+            title: "Building Scalable Web Solutions for Modern Businesses",
+            subtitle: "OFT TECH leverages deep architectural insight to guide enterprises through the gradient of digital transformation.",
+            ctaPrimary: "Start The Shift",
+            ctaSecondary: "Explore Vision"
+        },
     });
     const [loading, setLoading] = useState(true);
 
