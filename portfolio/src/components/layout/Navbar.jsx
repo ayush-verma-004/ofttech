@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '../../utils/cn';
-import { Container } from './Layout';
 import { Button } from '../ui/Button';
+
+// Custom wide container for Navbar to push content to edges
+const NavbarContainer = ({ children, className }) => (
+    <div className={cn("mx-auto w-full max-w-[95%] px-4 sm:px-6 lg:px-8", className)}>
+        {children}
+    </div>
+);
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +27,7 @@ const Navbar = () => {
         if (isMobileMenuOpen) {
             document.body.style.overflow = 'hidden';
         } else {
-            document.body.style.overflow = ''; // Revert to stylesheet default (hidden-x is applied there)
+            document.body.style.overflow = '';
         }
         return () => { document.body.style.overflow = ''; };
     }, [isMobileMenuOpen]);
@@ -39,15 +45,15 @@ const Navbar = () => {
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
                 isScrolled
-                    ? 'bg-white/80 backdrop-blur-xl py-3 border-b border-black/5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]'
+                    ? 'bg-white/90 backdrop-blur-xl py-4 border-b border-black/5 shadow-sm'
                     : 'bg-transparent py-6 border-b border-transparent'
             )}
         >
-            <Container className="flex items-center justify-between">
-                <div className="flex items-center gap-3 group cursor-pointer">
-                    <img src="/logo.svg" alt="OFT TECH Logo" className="h-10 w-auto transition-transform group-hover:scale-105" />
+            <NavbarContainer className="flex items-center justify-between">
+                <div className="flex items-center gap-3 group cursor-pointer -ml-2"> {/* Shifted left slightly with negative margin */}
+                    <img src="/logo.svg" alt="OFT TECH Logo" className="h-11 w-auto transition-transform group-hover:scale-105" />
                     <span className={cn(
-                        "text-xl font-bold tracking-tight transition-colors duration-500",
+                        "text-2xl font-bold tracking-tight transition-colors duration-500",
                         isScrolled ? "text-primary" : "text-[#FDFDFD]"
                     )}>
                         OFT TECH
@@ -55,30 +61,41 @@ const Navbar = () => {
                 </div>
 
                 {/* Desktop Nav */}
-                <div className="hidden md:flex items-center gap-10">
-                    <div className="flex items-center gap-8">
+                <div className="hidden md:flex items-center gap-12">
+                    <div className="flex items-center gap-10">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-medium transition-all duration-300 hover:text-secondary relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-secondary after:transition-all hover:after:w-full",
-                                    isScrolled ? "text-primary/70" : "text-white/80"
+                                    "text-base font-bold transition-all duration-300 hover:text-secondary relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-secondary after:transition-all hover:after:w-full",
+                                    isScrolled ? "text-primary/80" : "text-white/90"
                                 )}
                             >
                                 {link.name}
                             </a>
                         ))}
                     </div>
-                    <div className="flex items-center gap-3">
-                        <a href="/login" className={cn(
-                            "text-sm font-bold",
-                            isScrolled ? "text-gray-900" : "text-white"
+                    <div className="flex items-center gap-6">
+                        {/* Contact Us - Now a Link (Text) */}
+                        <a href="#contact" className={cn(
+                            "text-base font-bold transition-colors hover:text-secondary",
+                            isScrolled ? "text-primary" : "text-white"
                         )}>
-                            Log In
-                        </a>
-                        <Button variant={isScrolled ? "primary" : "outline"} size="sm">
                             Contact Us
+                        </a>
+
+                        {/* Log In - Now the Box (Button) */}
+                        <Button
+                            variant={isScrolled ? "primary" : "outline"}
+                            size="default"
+                            className={cn(
+                                "font-bold px-8",
+                                !isScrolled && "bg-white/10 border-white/20 text-white hover:bg-white hover:text-primary"
+                            )}
+                            onClick={() => window.location.href = '/login'}
+                        >
+                            Log In
                         </Button>
                     </div>
                 </div>
@@ -89,19 +106,18 @@ const Navbar = () => {
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? (
-                        null // Hide main toggle when open, use internal one
+                        null
                     ) : (
-                        <Menu className={isScrolled ? "text-primary" : "text-white"} />
+                        <Menu className={isScrolled ? "text-primary" : "text-white"} size={28} />
                     )}
                 </button>
-            </Container>
+            </NavbarContainer>
 
             {/* Mobile Menu */}
             <div className={cn(
                 "fixed inset-0 bg-primary z-[60] h-[100dvh] w-screen transition-all duration-500 md:hidden flex flex-col",
                 isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
             )}>
-                {/* Mobile Menu Header with Close Button on Left (Per User Request) */}
                 <div className="flex items-center justify-between px-6 py-6 border-b border-white/5">
                     <button
                         onClick={() => setIsMobileMenuOpen(false)}
@@ -131,10 +147,16 @@ const Navbar = () => {
                     ))}
                 </div>
                 <div className="mt-auto mb-12 px-8 flex flex-col gap-4">
-                    <a href="/login" className="text-white text-center text-lg font-medium py-3 border border-white/10 rounded-lg hover:bg-white/5 transition-colors">
-                        Log In
+                    <a href="#contact" className="text-white text-center text-lg font-medium py-3 border-b border-white/10 hover:text-secondary transition-colors mb-4">
+                        Contact Us
                     </a>
-                    <Button className="w-full bg-secondary hover:bg-secondary/90 text-white" size="lg">Contact Us</Button>
+                    <Button
+                        className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold"
+                        size="lg"
+                        onClick={() => window.location.href = '/login'}
+                    >
+                        Log In
+                    </Button>
                 </div>
             </div>
         </nav>
