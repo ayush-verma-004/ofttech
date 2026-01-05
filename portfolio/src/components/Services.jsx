@@ -63,7 +63,7 @@ const Services = () => {
                     <Card
                         key={i}
                         delay={i * 0.1}
-                        className="h-full flex flex-col items-center text-center p-8 md:p-10 border-t-4 border-t-transparent hover:border-t-secondary transition-all"
+                        className="h-full flex flex-col items-center text-center p-8 md:p-10 border-t-4 border-t-transparent hover:border-t-secondary transition-all shadow-lg hover:shadow-2xl"
                     >
                         <div className="relative w-20 h-20 mb-8 flex items-center justify-center">
                             <div className="absolute inset-0 bg-secondary/5 rounded-2xl rotate-12 group-hover:rotate-[30deg] group-hover:bg-secondary/10 transition-all duration-500"></div>
