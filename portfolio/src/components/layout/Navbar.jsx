@@ -50,8 +50,16 @@ const Navbar = () => {
             )}
         >
             <NavbarContainer className="flex items-center justify-between">
-                <div className="flex items-center gap-3 group cursor-pointer -ml-2"> {/* Shifted left slightly with negative margin */}
-                    <img src="/logo.svg" alt="OFT TECH Logo" className="h-11 w-auto transition-transform group-hover:scale-105" />
+                <div className="flex items-center gap-4 group cursor-pointer -ml-2">
+                    {/* Logo Circle */}
+                    <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform group-hover:scale-105"
+                        style={{
+                            background: 'linear-gradient(268deg, rgba(240, 227, 199, 1) 10%, rgba(166, 211, 224, 1) 100%)'
+                        }}
+                    >
+                        <img src="/logo.svg" alt="OFT TECH Logo" className="h-10 w-auto" />
+                    </div>
+
                     <span className={cn(
                         "text-2xl font-bold tracking-tight transition-colors duration-500",
                         isScrolled ? "text-primary" : "text-[#FDFDFD]"
