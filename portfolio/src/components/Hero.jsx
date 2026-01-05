@@ -76,7 +76,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="relative min-h-[100dvh] flex items-center hero-custom-gradient pt-20 overflow-hidden">
+        <section className="relative min-h-[100dvh] flex items-center hero-custom-gradient pt-32 overflow-hidden">
             {/* Texture Overlay */}
             <div className="absolute inset-0 z-0 opacity-[0.05]">
                 <svg className="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
