@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Terminal } from 'lucide-react';
 import { Container } from './layout/Layout';
@@ -37,6 +37,43 @@ const Hero = () => {
             transition: { duration: 0.8, ease: [0.21, 0.45, 0.32, 0.9] }
         },
     };
+
+    const [displayText, setDisplayText] = useState('OFT');
+
+    useEffect(() => {
+        let timeout;
+        let interval;
+
+        const typeNewText = () => {
+            const target = "OFT TECH";
+            let index = 0;
+            interval = setInterval(() => {
+                setDisplayText(target.slice(0, index + 1));
+                index++;
+                if (index > target.length) clearInterval(interval);
+            }, 300); // Slow typing speed
+        };
+
+        const startErasing = () => {
+            let current = "OFT";
+            interval = setInterval(() => {
+                current = current.slice(0, -1);
+                setDisplayText(current);
+                if (current.length === 0) {
+                    clearInterval(interval);
+                    timeout = setTimeout(typeNewText, 500); // Brief pause before typing starts
+                }
+            }, 300); // Slow erasing speed
+        };
+
+        // Start animation after 0.3s delay as requested
+        timeout = setTimeout(startErasing, 300);
+
+        return () => {
+            clearTimeout(timeout);
+            clearInterval(interval);
+        };
+    }, []);
 
     return (
         <section className="relative min-h-[100dvh] flex items-center hero-custom-gradient pt-20 overflow-hidden">
@@ -109,7 +146,10 @@ const Hero = () => {
                         <div className="relative z-10 w-64 h-64 bg-gradient-to-tr from-bg-light to-white rounded-full shadow-inner flex items-center justify-center">
                             <div className="w-48 h-48 bg-primary rounded-full flex items-center justify-center relative overflow-hidden">
                                 <div className="absolute w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
-                                <span className="text-accent font-black text-3xl tracking-tighter z-10">OFT</span>
+                                <span className="text-secondary font-black text-2xl tracking-tighter z-10 whitespace-nowrap min-h-[40px] flex items-center justify-center">
+                                    {displayText}
+                                    <span className="animate-pulse ml-0.5 opacity-70">|</span>
+                                </span>
                             </div>
                         </div>
                     </motion.div>
