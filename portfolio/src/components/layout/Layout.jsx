@@ -9,12 +9,12 @@ export const Container = ({ children, className }) => {
     );
 };
 
-export const Section = ({ children, className, id, dark = false }) => {
+export const Section = ({ children, className, id, dark = false, noPadding = false }) => {
     return (
         <section
             id={id}
             className={cn(
-                'py-16 md:py-32',
+                !noPadding && 'py-10 md:py-20', // Reduced from py-16 md:py-32
                 dark ? 'bg-primary text-white' : 'bg-white text-primary',
                 className
             )}

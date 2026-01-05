@@ -25,7 +25,7 @@ const Industries = () => {
 
     return (
         <Section id="industries" className="bg-white" noPadding={true}>
-            <div className="section-container relative z-10 py-24 lg:py-48">
+            <div className="section-container relative z-10 py-12 lg:py-24">
                 <SectionHeader
                     title="Specialized Industry Solutions"
                     subtitle="Industry Domain"
