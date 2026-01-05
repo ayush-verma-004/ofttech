@@ -138,13 +138,13 @@ const Hero = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="relative z-20 w-[500px] h-[500px] bg-white/10 backdrop-blur-2xl border-[10px] border-[#020c1b] rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.2)] flex items-center justify-center overflow-hidden"
+                        className="relative z-20 w-[500px] h-[500px] bg-white/10 backdrop-blur-2xl border-[10px] border-[#020c1b] rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.2)] flex items-center justify-center overflow-hidden"
                     >
                         {/* Internal Gradient Globe */}
                         <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rotate-45 animate-pulse"></div>
 
-                        <div className="relative z-10 w-64 h-64 bg-gradient-to-tr from-bg-light to-white rounded-full shadow-inner flex items-center justify-center">
-                            <div className="w-48 h-48 bg-primary rounded-full flex flex-col items-center justify-center relative overflow-hidden p-4">
+                        <div className="relative z-10 w-64 h-64 bg-[#020c1b] rounded-full shadow-inner flex items-center justify-center">
+                            <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center relative overflow-hidden p-4">
                                 <div className="absolute w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
                                 <img src="/logo.svg" alt="OFT TECH Logo" className="w-full h-full object-contain z-10" />
                             </div>
