@@ -144,7 +144,10 @@ const Hero = () => {
                         <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rotate-45 animate-pulse"></div>
 
                         <div className="relative z-10 w-64 h-64 bg-[#020c1b] rounded-full shadow-inner flex items-center justify-center">
-                            <div className="w-48 h-48 bg-white rounded-full flex flex-col items-center justify-center relative overflow-hidden p-4">
+                            <div
+                                className="w-48 h-48 rounded-full flex flex-col items-center justify-center relative overflow-hidden p-4"
+                                style={{ background: 'linear-gradient(268deg, rgba(240, 227, 199, 1) 10%, rgba(166, 211, 224, 1) 100%)' }}
+                            >
                                 <div className="absolute w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
                                 <img src="/logo.svg" alt="OFT TECH Logo" className="w-full h-full object-contain z-10" />
                             </div>
