@@ -138,7 +138,7 @@ const Hero = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="relative z-20 w-[500px] h-[500px] bg-white/10 backdrop-blur-2xl rounded-full shadow-[0_20px_60px_rgba(0,0,0,0.2)] flex items-center justify-center overflow-hidden"
+                        className="relative z-20 w-[500px] h-[500px] bg-white/10 backdrop-blur-2xl rounded-[3rem] shadow-[0_20px_60px_rgba(0,0,0,0.2)] flex items-center justify-center overflow-hidden"
                     >
                         {/* Internal Gradient Globe */}
                         <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 rotate-45 animate-pulse"></div>
