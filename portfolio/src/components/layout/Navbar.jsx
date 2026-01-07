@@ -34,7 +34,7 @@ const Navbar = () => {
 
     const navLinks = [
         { name: 'Services', href: '#services' },
-        { name: 'Solutions', href: '#solutions' },
+        { name: 'Solutions', href: '#projects' },
         { name: 'Industries', href: '#industries' },
         { name: 'About', href: '#about' },
         { name: 'Careers', href: '#careers' },
@@ -64,7 +64,7 @@ const Navbar = () => {
                         "text-2xl font-bold tracking-tight transition-colors duration-500",
                         isScrolled ? "text-primary" : "text-[#FDFDFD]"
                     )}>
-                        OFT TECH
+                        Oft Tech
                     </span>
                 </div>
 
