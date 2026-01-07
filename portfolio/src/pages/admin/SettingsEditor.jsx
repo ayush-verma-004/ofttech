@@ -141,7 +141,7 @@ const SettingsEditor = () => {
                 <div className="space-y-6">
                     <h3 className="text-lg font-bold border-b pb-2">Social Media Links</h3>
                     <div className="grid md:grid-cols-2 gap-4">
-                        {['linkedin', 'twitter', 'github', 'facebook', 'instagram'].map(platform => (
+                        {['linkedin', 'twitter', 'github', 'facebook', 'instagram', 'freelancer', 'upwork', 'fiverr'].map(platform => (
                             <div key={platform}>
                                 <label className="block text-sm font-medium mb-1 capitalize">{platform}</label>
                                 <input

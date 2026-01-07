@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './Layout';
 import { useSettings } from '../../context/SettingsContext';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, ArrowRight, Briefcase } from 'lucide-react';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -42,6 +42,11 @@ const Footer = () => {
                             {settings.socials?.linkedin && <a href={settings.socials.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Linkedin size={18} /></a>}
                             {settings.socials?.twitter && <a href={settings.socials.twitter} target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Twitter size={18} /></a>}
                             {settings.socials?.github && <a href={settings.socials.github} target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Github size={18} /></a>}
+
+                            {/* Freelancing Platforms */}
+                            {settings.socials?.freelancer && <a href={settings.socials.freelancer} target="_blank" rel="noreferrer" title="Freelancer" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Briefcase size={18} /></a>}
+                            {settings.socials?.upwork && <a href={settings.socials.upwork} target="_blank" rel="noreferrer" title="Upwork" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Briefcase size={18} /></a>}
+                            {settings.socials?.fiverr && <a href={settings.socials.fiverr} target="_blank" rel="noreferrer" title="Fiverr" className="w-10 h-10 flex items-center justify-center bg-white/5 rounded-full hover:bg-secondary hover:text-white text-gray-400 transition-all duration-300 border border-white/10"><Briefcase size={18} /></a>}
                         </div>
                     </div>
 

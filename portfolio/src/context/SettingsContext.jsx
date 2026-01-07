@@ -10,7 +10,7 @@ export const SettingsProvider = ({ children }) => {
         email: 'info@oft-tech.consulting',
         phone: '+1 (800) OFT-TECH',
         address: 'Level 24, Global Trade Center',
-        socials: {},
+        socials: { linkedin: '', twitter: '', github: '', facebook: '', instagram: '', freelancer: '', upwork: '', fiverr: '' },
         hero: {
             // Updated defaults to match user request
             tagline: "IT Services & Web Development Solutions",
