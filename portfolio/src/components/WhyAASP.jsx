@@ -59,7 +59,7 @@ const WhyOFT = () => {
                     </motion.div>
 
                     <div className="order-1">
-                        <span className="text-secondary font-bold uppercase tracking-[0.25em] text-[11px] mb-6 block">The OFT TECH Standard</span>
+                        <span className="text-secondary font-bold uppercase tracking-[0.25em] text-[11px] mb-6 block">The Oft Tech Standard</span>
                         <h2 className="heading-lg mb-10 text-primary">Strategic Advantage, <br />Global Reliability</h2>
                         <p className="text-body mb-12 opacity-80 max-w-lg">
                             We move beyond traditional vendor-client dynamics to establish deep strategic partnerships that focus on long-term technological stability and foresight.

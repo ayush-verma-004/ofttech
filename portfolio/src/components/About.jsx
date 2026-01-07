@@ -66,7 +66,7 @@ const About = () => {
                         className="prose prose-lg text-text-muted mb-10"
                     >
                         <p>
-                            {aboutData?.overview || "OFT TECH stands at the intersection of innovation and reliability. We don't just build software; we engineer digital ecosystems that empower businesses to thrive in a volatile market. Our commitment to excellence is woven into every line of code."}
+                            {aboutData?.overview || "Oft Tech stands at the intersection of innovation and reliability. We don't just build software; we engineer digital ecosystems that empower businesses to thrive in a volatile market. Our commitment to excellence is woven into every line of code."}
                         </p>
                     </motion.div>
 

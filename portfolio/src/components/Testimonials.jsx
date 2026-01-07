@@ -9,7 +9,7 @@ const Testimonials = () => {
         {
             name: "Marcus Thorne",
             role: "Chief Technology Officer — Global Logistics Corp",
-            text: "OFT TECH’s capability to transform complex distributed systems while maintaining operational continuity was critical to our success during their 24-month engagement.",
+            text: "Oft Tech’s capability to transform complex distributed systems while maintaining operational continuity was critical to our success during their 24-month engagement.",
         },
         {
             name: "Sarah Chen",
@@ -19,7 +19,7 @@ const Testimonials = () => {
         {
             name: "Robert J. Miller",
             role: "Managing Director — Horizon Academic",
-            text: "The resilience architecture built by OFT TECH allowed us to scale seamlessly to five million concurrent users during our most critical expansion phase.",
+            text: "The resilience architecture built by Oft Tech allowed us to scale seamlessly to five million concurrent users during our most critical expansion phase.",
         }
     ];
 

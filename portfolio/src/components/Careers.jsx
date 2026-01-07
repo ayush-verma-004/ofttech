@@ -39,7 +39,7 @@ const Careers = () => {
                         align="left"
                     />
                     <p className="text-text-muted text-lg mb-10 opacity-80 max-w-lg leading-relaxed">
-                        We seek exceptional minds to architect systems for the world's most influential organizations. At OFT TECH, your impact scales across global borders.
+                        We seek exceptional minds to architect systems for the world's most influential organizations. At Oft Tech, your impact scales across global borders.
                     </p>
                     <div className="p-8 border-l-4 border-secondary bg-white shadow-sm italic text-primary/80 text-sm leading-relaxed rounded-r-lg">
                         "Our culture is built on technical absolute-ism and strategic foresight. We partner with innovators, not just employees."

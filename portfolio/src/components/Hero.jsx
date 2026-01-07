@@ -45,7 +45,7 @@ const Hero = () => {
         let interval;
 
         const typeNewText = () => {
-            const target = "OFT TECH";
+            const target = "Oft Tech";
             let index = 0;
             interval = setInterval(() => {
                 setDisplayText(target.slice(0, index + 1));
@@ -149,7 +149,7 @@ const Hero = () => {
                                 style={{ background: 'linear-gradient(268deg, rgba(240, 227, 199, 1) 10%, rgba(166, 211, 224, 1) 100%)' }}
                             >
                                 <div className="absolute w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
-                                <img src="/logo.svg" alt="OFT TECH Logo" className="w-full h-full object-contain z-10" />
+                                <img src="/logo.svg" alt="Oft Tech Logo" className="w-full h-full object-contain z-10" />
                             </div>
                         </div>
                     </motion.div>

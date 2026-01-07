@@ -44,8 +44,8 @@ const AdminLayout = () => {
                 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
                 <div className="h-16 flex items-center px-6 border-b border-gray-100 gap-3">
-                    <img src="/logo.svg" alt="OFT TECH" className="h-8 w-auto" />
-                    <span className="text-xl font-bold tracking-tight text-primary">OFT TECH</span>
+                    <img src="/logo.svg" alt="Oft Tech" className="h-8 w-auto" />
+                    <span className="text-xl font-bold tracking-tight text-primary">Oft Tech</span>
                 </div>
 
                 <nav className="p-4 space-y-1">

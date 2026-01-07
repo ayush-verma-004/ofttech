@@ -15,7 +15,7 @@ export const SettingsProvider = ({ children }) => {
             // Updated defaults to match user request
             tagline: "IT Services & Web Development Solutions",
             title: "Building Scalable Web Solutions for Modern Businesses",
-            subtitle: "OFT TECH leverages deep architectural insight to guide enterprises through the gradient of digital transformation.",
+            subtitle: "Oft Tech leverages deep architectural insight to guide enterprises through the gradient of digital transformation.",
             ctaPrimary: "Start The Shift",
             ctaSecondary: "Explore Vision"
         },

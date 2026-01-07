@@ -57,7 +57,7 @@ const Navbar = () => {
                             background: 'linear-gradient(268deg, rgba(240, 227, 199, 1) 10%, rgba(166, 211, 224, 1) 100%)'
                         }}
                     >
-                        <img src="/logo.svg" alt="OFT TECH Logo" className="h-10 w-auto" />
+                        <img src="/logo.svg" alt="Oft Tech Logo" className="h-10 w-auto" />
                     </div>
 
                     <span className={cn(
@@ -134,7 +134,7 @@ const Navbar = () => {
                     >
                         <X size={32} />
                     </button>
-                    <img src="/logo.svg" alt="OFT TECH" className="h-8 w-auto" />
+                    <img src="/logo.svg" alt="Oft Tech" className="h-8 w-auto" />
                 </div>
 
                 <div className="flex flex-col gap-2 pt-8 px-8">

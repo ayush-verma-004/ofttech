@@ -32,8 +32,8 @@ const Footer = () => {
                     {/* Brand - 4 Cols */}
                     <div className="lg:col-span-4 space-y-8">
                         <div className="flex items-center gap-3">
-                            <img src="/logo.svg" alt="OFT TECH" className="h-10 w-auto brightness-0 invert" />
-                            <span className="text-2xl font-black tracking-tighter">OFT TECH</span>
+                            <img src="/logo.svg" alt="Oft Tech" className="h-10 w-auto brightness-0 invert" />
+                            <span className="text-2xl font-black tracking-tighter">Oft Tech</span>
                         </div>
                         <p className="text-gray-400 text-sm leading-relaxed max-w-sm font-medium">
                             Pioneering enterprise software solutions and strategic IT consulting to accelerate global business transformation.
@@ -93,7 +93,7 @@ const Footer = () => {
                 </div>
 
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium uppercase tracking-wider">
-                    <p>© {currentYear} OFT TECH Consulting Group. All rights reserved.</p>
+                    <p>© {currentYear} Oft Tech Consulting Group. All rights reserved.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-white transition-colors">Cookie Settings</a>
                         <a href="#" className="hover:text-white transition-colors">Accessibility</a>
